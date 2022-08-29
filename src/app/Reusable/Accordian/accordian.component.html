@@ -1,0 +1,21 @@
+<section class="accordian">
+  <section class="accordian-title">
+  <ng-container *ngTemplateOutlet="defaultTitle"> 
+  
+  </ng-container>
+  </section>
+  <section class="accoridan-content">
+  <ng-container *ngTemplateOutlet="defaultContent"> 
+  
+</ng-container>
+  </section>
+</section>
+
+
+<ng-template #defaultTitle>
+Accordian Title
+</ng-template>
+
+<ng-template #defaultContent>
+Accordian Content
+</ng-template>

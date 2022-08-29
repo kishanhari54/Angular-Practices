@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
+import { from, fromEvent, of } from 'rxjs';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'rs-typeahead',
@@ -23,17 +23,26 @@ export class TypeAhead implements OnInit {
   latency = 10000;
   ngOnInit() {
     fromEvent(document.querySelector('input'), 'keyup')
-      .pipe(debounceTime(500))
-      .subscribe((e: any) => {
+      .pipe(
+        debounceTime(500),
+        switchMap(($event: any) => from(this.fetchResults($event.target.value)))
+      )
+      .subscribe((results: any) => {
+        debugger;
+        this.results = [];
+        results.forEach((data) => this.results.push(data.word));
+      });
+
+    /*.subscribe((e: any) => {
         let data = e.target.value;
-        setTimeout(() => {
+         setTimeout(() => {
           this.results = [];
           this.fetchResults(data).then((results) =>
             results.forEach((data) => this.results.push(data.word))
           );
         }, this.latency);
-        this.latency = 0;
-      });
+        this.latency = 0; 
+      });*/
   }
 
   fetchResults(val): Promise<any[]> {

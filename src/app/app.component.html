@@ -1,6 +1,9 @@
 <hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<p>Start editing to see some magic happen :)</p>
 
-<rs-accord></rs-accord>
+<rs-accord [ContentData]="{ $implicit: 'World', data: 'HelloData' }">
+  <ng-template #title> My Accordian Title </ng-template>
+  <ng-template #content let-data="data" let-random>
+    My Accordian Content {{ data }} {{random}}</ng-template
+  >
+</rs-accord>

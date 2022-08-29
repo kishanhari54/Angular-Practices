@@ -1,21 +1,19 @@
 <section class="accordian">
   <section class="accordian-title">
-  <ng-container *ngTemplateOutlet="defaultTitle"> 
-  
-  </ng-container>
+    <ng-container *ngTemplateOutlet="title || defaultTitle"> </ng-container>
+    <a class="toggle" (click)="toggler()"> Expand </a>
   </section>
-  <section class="accoridan-content">
-  <ng-container *ngTemplateOutlet="defaultContent"> 
-  
-</ng-container>
+  <section class="accoridan-content" *ngIf="expand">
+    <ng-container
+      *ngTemplateOutlet="content || defaultContent; context: ContentData"
+    >
+    </ng-container>
   </section>
 </section>
 
+<ng-content></ng-content>
+<ng-template #defaultTitle> Accordian Title </ng-template>
 
-<ng-template #defaultTitle>
-Accordian Title
-</ng-template>
-
-<ng-template #defaultContent>
-Accordian Content
-</ng-template>
+<ng-template #defaultContent let-data>
+  Accordian Content {{ data }}</ng-template
+>

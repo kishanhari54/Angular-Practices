@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { from, fromEvent, of } from 'rxjs';
-import { debounceTime, map, switchMap } from 'rxjs/operators';
+import { from, fromEvent, interval, of, timer } from 'rxjs';
+import { debounceTime, map, switchMap, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'rs-typeahead',
@@ -24,11 +24,10 @@ export class TypeAhead implements OnInit {
   ngOnInit() {
     fromEvent(document.querySelector('input'), 'keyup')
       .pipe(
-        debounceTime(500),
+        debounceTime(300),
         switchMap(($event: any) => from(this.fetchResults($event.target.value)))
       )
       .subscribe((results: any) => {
-        debugger;
         this.results = [];
         results.forEach((data) => this.results.push(data.word));
       });

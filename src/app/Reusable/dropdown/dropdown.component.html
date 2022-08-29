@@ -1,0 +1,8 @@
+<section class="dropdownContainer">
+  <select>
+    <option value="">- Select -</option>
+    <option *ngFor="let data of dropdownData" [value]="data.value">
+      {{ data.description }}
+    </option>
+  </select>
+</section>

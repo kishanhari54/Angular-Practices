@@ -1,9 +1,27 @@
-<hello name="{{ name }}"></hello>
-<p>Start editing to see some magic happen :)</p>
+<section class="example">
+  <h1 class="header">Accordian Example</h1>
+  <hr />
+  <rs-accord [ContentData]="{ $implicit: 'World', data: 'HelloData' }">
+    <ng-template #title> My Accordian Title </ng-template>
+    <ng-template #content let-data="data" let-random>
+      My Accordian Content {{ data }} {{ random }}</ng-template
+    >
+  </rs-accord>
+</section>
 
-<rs-accord [ContentData]="{ $implicit: 'World', data: 'HelloData' }">
-  <ng-template #title> My Accordian Title </ng-template>
-  <ng-template #content let-data="data" let-random>
-    My Accordian Content {{ data }} {{random}}</ng-template
-  >
-</rs-accord>
+<hr />
+<section class="example">
+  <h1 class="header">Dropdown Example</h1>
+  <hr />
+  <label for="dataList"> Select Name</label>
+  <rs-dropdown id="dataList" [data]="dropdownData"> </rs-dropdown>
+  <section></section>
+</section>
+
+<hr />
+
+<section class="example">
+  <h1 class="header">TypeAhead Example</h1>
+  <hr />
+  <rs-typeahead id="typeAhead"></rs-typeahead>
+</section>

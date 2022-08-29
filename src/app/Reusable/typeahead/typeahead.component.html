@@ -1,0 +1,6 @@
+<section class="typeaheadContainer">
+  <input type="text" placeholder="Search"/>
+  <ul *ngIf="results">
+    <li *ngFor="let result of results">{{ result }}</li>
+  </ul>
+</section>

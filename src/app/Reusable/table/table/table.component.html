@@ -1,0 +1,35 @@
+<table>
+  <thead>
+    <tr>
+      <ng-container
+        *ngTemplateOutlet="header || defaultheader; context: cxt"
+      ></ng-container>
+    </tr>
+    <tr></tr>
+  </thead>
+
+  <tbody>
+    <ng-container *ngFor="let rowData of Data; let i = index">
+      <ng-container
+        *ngTemplateOutlet="
+          defaultBody;
+          context: { data: rowData, cols: HeaderColumns }
+        "
+      ></ng-container>
+    </ng-container>
+  </tbody>
+
+  <tbody></tbody>
+</table>
+
+<ng-template #defaultheader let-cols="cols">
+  <th *ngFor="let header of cols">
+    {{ header.description }}
+  </th>
+</ng-template>
+
+<ng-template #defaultBody let-cols="cols" let-data="data">
+  <tr>
+    <td *ngFor="let col of cols">{{ data[col.key] }}</td>
+  </tr>
+</ng-template>

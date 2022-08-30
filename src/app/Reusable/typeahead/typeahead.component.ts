@@ -28,7 +28,7 @@ export class TypeAhead implements OnInit {
         switchMap(($event: any) => from(this.fetchResults($event.target.value)))
       )
       .subscribe((results: any) => {
-        this.results = [];
+       // this.results = [];
         results.forEach((data) => this.results.push(data.word));
       });
 

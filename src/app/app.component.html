@@ -25,3 +25,33 @@
   <hr />
   <rs-typeahead id="typeAhead"></rs-typeahead>
 </section>
+
+<hr />
+
+<section class="example">
+  <h1 class="header">Custom Table Example</h1>
+  <hr />
+  <rs-table
+    id="tableInfo"
+    [HeaderColumns]="customTable.HeaderColumns"
+    [Data]="customTable.Data"
+  ></rs-table>
+  <hr />
+  <h4>With Content Projection</h4>
+  <rs-table
+    id="tableInfo"
+    [HeaderColumns]="customTable.HeaderColumns"
+    [Data]="customTable.Data"
+  >
+    <ng-template #header let-cols="cols">
+      <td *ngFor="let col of cols">
+        {{ col.description }}
+      </td>
+    </ng-template>
+    <ng-template #body let-data="data">
+      <td *ngFor="let col of data">
+       
+      </td>
+    </ng-template>
+  </rs-table>
+</section>

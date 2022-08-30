@@ -12,10 +12,11 @@
     <ng-container *ngFor="let rowData of Data; let i = index">
       <ng-container
         *ngTemplateOutlet="
-          defaultBody;
+          body || defaultBody;
           context: { data: rowData, cols: HeaderColumns }
         "
-      ></ng-container>
+      >
+      </ng-container>
     </ng-container>
   </tbody>
 

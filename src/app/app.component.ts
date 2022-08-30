@@ -24,4 +24,8 @@ export class AppComponent {
       { id: '4', name: 'Fami' },
     ],
   };
+
+  edit(tablerowData) {
+    console.log(tablerowData);
+  }
 }

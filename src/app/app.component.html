@@ -47,11 +47,13 @@
       <td *ngFor="let col of cols">
         {{ col.description }}
       </td>
+      <td>Actions</td>
     </ng-template>
-    <ng-template #body let-data="data">
-      <td *ngFor="let col of data">
-       
-      </td>
+    <ng-template #body let-cols="cols" let-data="data">
+      <tr>
+        <td *ngFor="let col of cols">{{ data[col.key] }}</td>
+        <td><button (click)="edit(data)">Edit</button></td>
+      </tr>
     </ng-template>
   </rs-table>
 </section>

@@ -1,4 +1,10 @@
-import { Component , OnInit, AfterViewInit , AfterContentInit} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  AfterContentInit,
+} from '@angular/core';
+import { RxjsService } from './Rxjs/rxjs.service';
 
 @Component({
   selector: 'my-app',
@@ -24,18 +30,18 @@ export class AppComponent {
       { id: '4', name: 'Fami' },
     ],
   };
-  constructor(){
+  constructor(public _RxjsService: RxjsService) {
     console.log('App Comp Const');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('App - Ng On Init');
   }
-  ngAfterViewInit(){
-    console.log('App Ng After View')
+  ngAfterViewInit() {
+    console.log('App Ng After View');
   }
-  ngAfterContentInit(){
-    console.log('App NG Content Init')
+  ngAfterContentInit() {
+    console.log('App NG Content Init');
   }
 
   edit(tablerowData) {
@@ -44,5 +50,9 @@ export class AppComponent {
       this.customTable.Data.findIndex((d) => d.id == tablerowData.id),
       1
     );
+    //this.customTable.Data = [...this.customTable.Data];
+    // Enable this to test for OnPush Stratergy Change Detection.
   }
+
+  // Rxjs Checking
 }

@@ -4,12 +4,14 @@ import {
   Input,
   TemplateRef,
   ContentChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 @Component({
   selector: 'rs-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements OnInit {
   @Input() HeaderColumns: headerColumn[];

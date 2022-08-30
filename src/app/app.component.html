@@ -52,7 +52,7 @@
     <ng-template #body let-cols="cols" let-data="data">
       <tr>
         <td *ngFor="let col of cols">{{ data[col.key] }}</td>
-        <td><button (click)="edit(data)">Edit</button></td>
+        <td><button (click)="edit(data)">X</button></td>
       </tr>
     </ng-template>
   </rs-table>

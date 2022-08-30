@@ -10,7 +10,12 @@ import { Component, Input } from '@angular/core';
 export class Dropdown {
   @Input('data') dropdownData: dropdownDataModel[];
 
-  ngOnInit() {}
+    constructor(){
+      console.log('Dropdown Comp Const');
+    }
+  ngOnInit() { 
+    console.log('Dropdown On Init');
+  }
 }
 
 interface dropdownDataModel {

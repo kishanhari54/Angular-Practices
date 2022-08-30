@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit, AfterViewInit , AfterContentInit} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -24,8 +24,25 @@ export class AppComponent {
       { id: '4', name: 'Fami' },
     ],
   };
+  constructor(){
+    console.log('App Comp Const');
+  }
+
+  ngOnInit(){
+    console.log('App - Ng On Init');
+  }
+  ngAfterViewInit(){
+    console.log('App Ng After View')
+  }
+  ngAfterContentInit(){
+    console.log('App NG Content Init')
+  }
 
   edit(tablerowData) {
     console.log(tablerowData);
+    this.customTable.Data.splice(
+      this.customTable.Data.findIndex((d) => d.id == tablerowData.id),
+      1
+    );
   }
 }

@@ -13,9 +13,12 @@ export class AccordianComponent {
 
   expand: boolean = false;
   ngOnInit() {
+    console.log('Accordian On Init');
     console.log(this.ContentData);
   }
-
+  constructor() {
+    console.log('Accordian Comp Const');
+  }
   toggler() {
     this.expand = !this.expand;
   }
